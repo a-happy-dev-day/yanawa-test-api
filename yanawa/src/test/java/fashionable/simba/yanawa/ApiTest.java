@@ -1,5 +1,6 @@
 package fashionable.simba.yanawa;
 
+import fashionable.simba.yanawa.controller.MatchingApiController;
 import fashionable.simba.yanawa.controller.dto.MatchingDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -12,11 +13,10 @@ public class ApiTest {
         MatchingDto dto = new MatchingDto.Builder(matchingId).courtId(0L).build();
         Assertions.assertEquals(dto.getCourtId(),0L);
     }
-//    @Test
-//    @DisplayName("매칭을 모집했다.")
-//    void Matching_등록된다() throws Exception {
-//
-//    }
-
-
+    @Test
+    @DisplayName("매칭을 모집했다.")
+    void Matching_등록된다() throws Exception {
+        //given
+        MatchingDto dto = new MatchingDto.Builder(0L).build();
+    }
 }

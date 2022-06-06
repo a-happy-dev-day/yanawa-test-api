@@ -5,11 +5,6 @@ import java.time.LocalDateTime;
 public class MatchingDto {
     private final Long matchingId;
     private final Long courtId;
-
-    public Long getCourtId() {
-        return courtId;
-    }
-
     private final LocalDateTime startDate;
     private final LocalDateTime endDate;
     private final Integer annual;
@@ -18,11 +13,71 @@ public class MatchingDto {
     private final Integer ageOfRecruitment;
     private final GenderType sexOfRecruitment;
     private final PreferenceType preferenceGame;
-    private final Integer numberOfnumberOf;
+    private final Integer numberOfnumber;
     private final Double costOfCourtPerPerson;
     private final String details;
     private final StatusType status;
     private final Long hostId;
+
+    public Long getMatchingId() {
+        return matchingId;
+    }
+
+    public Long getCourtId() {
+        return courtId;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public Integer getAnnual() {
+        return annual;
+    }
+
+    public Double getMinimumLevel() {
+        return minimumLevel;
+    }
+
+    public Double getMaximumLevel() {
+        return maximumLevel;
+    }
+
+    public Integer getAgeOfRecruitment() {
+        return ageOfRecruitment;
+    }
+
+    public GenderType getSexOfRecruitment() {
+        return sexOfRecruitment;
+    }
+
+    public PreferenceType getPreferenceGame() {
+        return preferenceGame;
+    }
+
+    public Integer getNumberOfnumber() {
+        return numberOfnumber;
+    }
+
+    public Double getCostOfCourtPerPerson() {
+        return costOfCourtPerPerson;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public StatusType getStatus() {
+        return status;
+    }
+
+    public Long getHostId() {
+        return hostId;
+    }
 
     private MatchingDto(Builder builder) {
         this.matchingId           = builder.matchingId;
@@ -35,7 +90,7 @@ public class MatchingDto {
         this.ageOfRecruitment     = builder.ageOfRecruitment;
         this.sexOfRecruitment     = builder.sexOfRecruitment;
         this.preferenceGame       = builder.preferenceGame;
-        this.numberOfnumberOf     = builder.numberOfnumberOf;
+        this.numberOfnumber     = builder.numberOfnumber;
         this.costOfCourtPerPerson = builder.costOfCourtPerPerson;
         this.details              = builder.details;
         this.status               = builder.status;
@@ -52,7 +107,7 @@ public class MatchingDto {
         private Integer ageOfRecruitment;
         private GenderType sexOfRecruitment;
         private PreferenceType preferenceGame;
-        private Integer numberOfnumberOf;
+        private Integer numberOfnumber;
         private Double costOfCourtPerPerson;
         private String details;
         private StatusType status;
@@ -73,7 +128,7 @@ public class MatchingDto {
             this.endDate = endDate;
             return this;
         }
-        public Builder annula(Integer annual) {
+        public Builder annual(Integer annual) {
             this.annual = annual;
             return this;
         }
@@ -97,8 +152,8 @@ public class MatchingDto {
             this.preferenceGame = preferenceGame;
             return this;
         }
-        public Builder numberOfnumberOf(Integer numberOfnumberOf) {
-            this.numberOfnumberOf = numberOfnumberOf;
+        public Builder numberOfnumber(Integer numberOfnumber) {
+            this.numberOfnumber = numberOfnumber;
             return this;
         }
         public Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
