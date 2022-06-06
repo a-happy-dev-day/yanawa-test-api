@@ -1,33 +1,29 @@
 package fashionable.simba.yanawa.controller;
 
 import fashionable.simba.yanawa.controller.dto.MatchingDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class MatchingApiController {
 
 //    @ModelAttribute("matchingDtos")
 //    public List<MatchingDto> matchingDtoList() {
-//        MatchingDto matchingDto = new MatchingDto.Builder()
-//                .courtId();
+//        MatchingDto matchingDto = new MatchingDto.Builder(0L)
+//                .courtId(0L).annula(1).ageOfRecruitment(1).build();
 //        ArrayList<MatchingDto> list = new ArrayList<>();
 //        list.add(matchingDto);
-//
+//        return list;
 //    }
 //    @GetMapping("api/matchings")
-//    public List<MatchingDto> readAll(Long matchingId) {
+//    public List<MatchingDto> readAll() {
 //
 //    }
     @GetMapping("api/matchings/{matchingsId}")
-    public MatchingDto read(UUID matchingId) {
-        return
+    public MatchingDto read(@RequestParam("id") Long matchingId) {
+        return new MatchingDto.Builder(matchingId).build();
     }
 
 }

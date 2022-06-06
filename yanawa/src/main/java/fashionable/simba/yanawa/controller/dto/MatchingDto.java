@@ -1,26 +1,30 @@
 package fashionable.simba.yanawa.controller.dto;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class MatchingDto {
-    private final UUID matchingId;
-    private Long courtId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private Integer annual;
-    private Double minimumLevel;
-    private Double maximumLevel;
-    private Integer ageOfRecruitment;
-    private GenderType sexOfRecruitment;
-    private PreferenceType preferenceGame;
-    private Integer numberOfnumberOf;
-    private Double costOfCourtPerPerson;
-    private String details;
-    private StatusType status;
-    private Long hostId;
+    private final Long matchingId;
+    private final Long courtId;
 
-    private MatchingDto(MatchingDto.Builder builder) {
+    public Long getCourtId() {
+        return courtId;
+    }
+
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
+    private final Integer annual;
+    private final Double minimumLevel;
+    private final Double maximumLevel;
+    private final Integer ageOfRecruitment;
+    private final GenderType sexOfRecruitment;
+    private final PreferenceType preferenceGame;
+    private final Integer numberOfnumberOf;
+    private final Double costOfCourtPerPerson;
+    private final String details;
+    private final StatusType status;
+    private final Long hostId;
+
+    private MatchingDto(Builder builder) {
         this.matchingId           = builder.matchingId;
         this.courtId              = builder.courtId;
         this.startDate            = builder.startDate;
@@ -38,7 +42,7 @@ public class MatchingDto {
         this.hostId               = builder.hostId;
     }
     public static class Builder {
-        private final UUID matchingId;
+        private final Long matchingId;
         private Long courtId;
         private LocalDateTime startDate;
         private LocalDateTime endDate;
@@ -54,64 +58,67 @@ public class MatchingDto {
         private StatusType status;
         private Long hostId;
 
-        public Builder(UUID matchingId){
+        public Builder(Long matchingId){
             this.matchingId = matchingId;
         }
-        public MatchingDto.Builder courtId(Long courtId){
+        public Builder courtId(Long courtId){
             this.courtId = courtId;
             return this;
         }
-        public MatchingDto.Builder startDate(LocalDateTime startDate) {
+        public Builder startDate(LocalDateTime startDate) {
             this.startDate = startDate;
             return this;
         }
-        public MatchingDto.Builder endDate(LocalDateTime endDate) {
+        public Builder endDate(LocalDateTime endDate) {
             this.endDate = endDate;
             return this;
         }
-        public MatchingDto.Builder annula(Integer annual) {
+        public Builder annula(Integer annual) {
             this.annual = annual;
             return this;
         }
-        public MatchingDto.Builder minimumLevel(Double minimumLevel) {
+        public Builder minimumLevel(Double minimumLevel) {
             this.minimumLevel = minimumLevel;
             return this;
         }
-        public MatchingDto.Builder maximumLevel(Double maximumLevel) {
+        public Builder maximumLevel(Double maximumLevel) {
             this.maximumLevel = maximumLevel;
             return this;
         }
-        public MatchingDto.Builder ageOfRecruitment(Integer ageOfRecruitment) {
+        public Builder ageOfRecruitment(Integer ageOfRecruitment) {
             this.ageOfRecruitment = ageOfRecruitment;
             return this;
         }
-        public MatchingDto.Builder sexOfRecruitment(GenderType sexOfRecruitment) {
+        public Builder sexOfRecruitment(GenderType sexOfRecruitment) {
             this.sexOfRecruitment = sexOfRecruitment;
             return this;
         }
-        public MatchingDto.Builder preferenceGame(PreferenceType preferenceGame) {
+        public Builder preferenceGame(PreferenceType preferenceGame) {
             this.preferenceGame = preferenceGame;
             return this;
         }
-        public MatchingDto.Builder numberOfnumberOf(Integer numberOfnumberOf) {
+        public Builder numberOfnumberOf(Integer numberOfnumberOf) {
             this.numberOfnumberOf = numberOfnumberOf;
             return this;
         }
-        public MatchingDto.Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
+        public Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
             this.costOfCourtPerPerson = costOfCourtPerPerson;
             return this;
         }
-        public MatchingDto.Builder details(String details) {
+        public Builder details(String details) {
             this.details = details;
             return this;
         }
-        public MatchingDto.Builder status(StatusType status) {
+        public Builder status(StatusType status) {
             this.status = status;
             return this;
         }
-        public MatchingDto.Builder hostId(Long hostId) {
+        public Builder hostId(Long hostId) {
             this.hostId = hostId;
             return this;
+        }
+        public MatchingDto build(){
+            return new MatchingDto(this);
         }
     }
 }
