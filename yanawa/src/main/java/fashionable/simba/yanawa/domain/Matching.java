@@ -1,13 +1,9 @@
-package fashionable.simba.yanawa.controller.dto;
-
-import fashionable.simba.yanawa.domain.GenderType;
-import fashionable.simba.yanawa.domain.PreferenceType;
-import fashionable.simba.yanawa.domain.StatusType;
+package fashionable.simba.yanawa.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class MatchingDto {
+public class Matching {
     private final UUID matchingId;
     private final Long courtId;
     private final LocalDateTime startDate;
@@ -84,7 +80,7 @@ public class MatchingDto {
         return hostId;
     }
 
-    private MatchingDto(MatchingDto.Builder builder) {
+    private Matching(Builder builder) {
         this.matchingId           = builder.matchingId;
         this.courtId              = builder.courtId;
         this.startDate            = builder.startDate;
@@ -121,64 +117,64 @@ public class MatchingDto {
         public Builder(UUID matchingId){
             this.matchingId = matchingId;
         }
-        public MatchingDto.Builder courtId(Long courtId){
+        public Builder courtId(Long courtId){
             this.courtId = courtId;
             return this;
         }
-        public MatchingDto.Builder startDate(LocalDateTime startDate) {
+        public Builder startDate(LocalDateTime startDate) {
             this.startDate = startDate;
             return this;
         }
-        public MatchingDto.Builder endDate(LocalDateTime endDate) {
+        public Builder endDate(LocalDateTime endDate) {
             this.endDate = endDate;
             return this;
         }
-        public MatchingDto.Builder annual(Integer annual) {
+        public Builder annual(Integer annual) {
             this.annual = annual;
             return this;
         }
-        public MatchingDto.Builder minimumLevel(Double minimumLevel) {
+        public Builder minimumLevel(Double minimumLevel) {
             this.minimumLevel = minimumLevel;
             return this;
         }
-        public MatchingDto.Builder maximumLevel(Double maximumLevel) {
+        public Builder maximumLevel(Double maximumLevel) {
             this.maximumLevel = maximumLevel;
             return this;
         }
-        public MatchingDto.Builder ageOfRecruitment(Integer ageOfRecruitment) {
+        public Builder ageOfRecruitment(Integer ageOfRecruitment) {
             this.ageOfRecruitment = ageOfRecruitment;
             return this;
         }
-        public MatchingDto.Builder sexOfRecruitment(GenderType sexOfRecruitment) {
+        public Builder sexOfRecruitment(GenderType sexOfRecruitment) {
             this.sexOfRecruitment = sexOfRecruitment;
             return this;
         }
-        public MatchingDto.Builder preferenceGame(PreferenceType preferenceGame) {
+        public Builder preferenceGame(PreferenceType preferenceGame) {
             this.preferenceGame = preferenceGame;
             return this;
         }
-        public MatchingDto.Builder numberOfnumber(Integer numberOfnumber) {
+        public Builder numberOfnumber(Integer numberOfnumber) {
             this.numberOfnumber = numberOfnumber;
             return this;
         }
-        public MatchingDto.Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
+        public Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
             this.costOfCourtPerPerson = costOfCourtPerPerson;
             return this;
         }
-        public MatchingDto.Builder details(String details) {
+        public Builder details(String details) {
             this.details = details;
             return this;
         }
-        public MatchingDto.Builder status(StatusType status) {
+        public Builder status(StatusType status) {
             this.status = status;
             return this;
         }
-        public MatchingDto.Builder hostId(Long hostId) {
+        public Builder hostId(Long hostId) {
             this.hostId = hostId;
             return this;
         }
-        public MatchingDto build(){
-            return new MatchingDto(this);
+        public Matching build(){
+            return new Matching(this);
         }
     }
 }

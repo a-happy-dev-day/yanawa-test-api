@@ -1,4 +1,4 @@
-package fashionable.simba.yanawa.controller.dto;
+package fashionable.simba.yanawa.domain;
 
 public enum PreferenceType {
     RALLY, MATCHING
