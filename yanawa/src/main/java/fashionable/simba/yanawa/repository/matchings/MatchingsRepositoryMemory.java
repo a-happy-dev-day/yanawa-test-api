@@ -1,6 +1,7 @@
 package fashionable.simba.yanawa.repository.matchings;
 
 import fashionable.simba.yanawa.controller.dto.MatchingDto;
+import fashionable.simba.yanawa.error.NotValidDateException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,9 @@ public class MatchingsRepositoryMemory implements MatchingsRepository {
 
     @Override
     public MatchingDto save(MatchingDto dto) {
+        if (!dto.getStartDate().isBefore(dto.getEndDate())){
+            throw new NotValidDateException();
+        }
         store.add(dto);
         return dto;
     }

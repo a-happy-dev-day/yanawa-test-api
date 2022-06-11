@@ -13,7 +13,7 @@ public class MatchingApiController {
     private MatchingsRepositoryMemory matchingsRepositoryMemory;
 
     @PostMapping("api/matchings/{machingsId}")
-    public void save(){
+    public void save(@RequestBody MatchingDto dto){
 
     }
 
