@@ -21,8 +21,7 @@ public class MatchingApiController {
             .annual(1)
             .ageOfRecruitment(1)
             .costOfCourtPerPerson(1.0)
-            .courtId(1L)
-            .hostId(2L).details("안녕하세요. 잘부탁드립니다.").build();
+            .details("안녕하세요. 잘부탁드립니다.").build();
 
         List<MatchingDto> matchingDtos = new ArrayList<>();
 
@@ -39,7 +38,6 @@ public class MatchingApiController {
             .annual(1)
             .ageOfRecruitment(1)
             .costOfCourtPerPerson(1.0)
-            .courtId(1L)
-            .hostId(2L).details("안녕하세요. 잘부탁드립니다.").build();
+            .details("안녕하세요. 잘부탁드립니다.").build();
     }
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
 public class MatchingDto {
 
     private final UUID matchingId;
-    private final Long courtId;
+    private final UUID courtId;
     @JsonIgnore
     private final LocalDateTime startDate;
     @JsonIgnore
@@ -26,13 +26,13 @@ public class MatchingDto {
     private final Double costOfCourtPerPerson;
     private final String details;
     private final StatusType status;
-    private final Long hostId;
+    private final UUID hostId;
 
     public UUID getMatchingId() {
         return matchingId;
     }
 
-    public Long getCourtId() {
+    public UUID getCourtId() {
         return courtId;
     }
 
@@ -84,8 +84,26 @@ public class MatchingDto {
         return status;
     }
 
-    public Long getHostId() {
+    public UUID getHostId() {
         return hostId;
+    }
+
+    public MatchingDto(UUID matchingId, UUID courtId, LocalDateTime startDate, LocalDateTime endDate, Integer annual, Double minimumLevel, Double maximumLevel, Integer ageOfRecruitment, GenderType sexOfRecruitment, PreferenceType preferenceGame, Integer numberOfNumber, Double costOfCourtPerPerson, String details, StatusType status, UUID hostId) {
+        this.matchingId = matchingId;
+        this.courtId = courtId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.annual = annual;
+        this.minimumLevel = minimumLevel;
+        this.maximumLevel = maximumLevel;
+        this.ageOfRecruitment = ageOfRecruitment;
+        this.sexOfRecruitment = sexOfRecruitment;
+        this.preferenceGame = preferenceGame;
+        this.numberOfNumber = numberOfNumber;
+        this.costOfCourtPerPerson = costOfCourtPerPerson;
+        this.details = details;
+        this.status = status;
+        this.hostId = hostId;
     }
 
     private MatchingDto(MatchingDto.Builder builder) {
@@ -108,7 +126,7 @@ public class MatchingDto {
 
     public static class Builder {
         private final UUID matchingId;
-        private Long courtId;
+        private UUID courtId;
         private LocalDateTime startDate;
         private LocalDateTime endDate;
         private Integer annual;
@@ -121,13 +139,13 @@ public class MatchingDto {
         private Double costOfCourtPerPerson;
         private String details;
         private StatusType status;
-        private Long hostId;
+        private UUID hostId;
 
         public Builder(UUID matchingId) {
             this.matchingId = matchingId;
         }
 
-        public MatchingDto.Builder courtId(Long courtId) {
+        public MatchingDto.Builder courtId(UUID courtId) {
             this.courtId = courtId;
             return this;
         }
@@ -192,7 +210,7 @@ public class MatchingDto {
             return this;
         }
 
-        public MatchingDto.Builder hostId(Long hostId) {
+        public MatchingDto.Builder hostId(UUID hostId) {
             this.hostId = hostId;
             return this;
         }
