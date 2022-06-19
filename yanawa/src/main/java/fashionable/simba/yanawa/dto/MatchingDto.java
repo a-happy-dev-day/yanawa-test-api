@@ -12,9 +12,7 @@ public class MatchingDto {
 
     private final UUID matchingId;
     private final UUID courtId;
-    @JsonIgnore
     private final LocalDateTime startDate;
-    @JsonIgnore
     private final LocalDateTime endDate;
     private final Integer annual;
     private final Double minimumLevel;
