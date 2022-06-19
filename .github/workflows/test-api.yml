@@ -1,13 +1,12 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: yanawa test api
+name: yanawa test api in docker
 
 on:
   push:
     branches: [ "test-api" ]
-  pull_request:
-    branches: [ "test-api" ]
+
+env:
+  NAME: geonc123
+  REPO: yanawa-be
 
 jobs:
   build:
@@ -21,7 +20,31 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-          cache: maven
+
       - name: Build with Maven
         run: mvn -B package --file pom.xml
         working-directory: ./yanawa
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./yanawa
+          file: ./yanawa/Dockerfile
+          push: true
+          tags: ${{env.NAME}}/${{env.REPO}}:latest
+
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: [ self-hosted, label-development ]
+    steps:
+
+      - name: deploy run
+        run: |
+          sudo sh /home/ec2-user/run.sh
