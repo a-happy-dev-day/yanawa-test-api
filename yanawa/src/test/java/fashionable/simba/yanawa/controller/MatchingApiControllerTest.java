@@ -42,7 +42,7 @@ class MatchingApiControllerTest {
 
 
         //when
-        mockMvc.perform(post("/api/matchings")
+        mockMvc.perform(post("/v1/api/matchings")
                 .content(matchingJson)
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
@@ -53,7 +53,7 @@ class MatchingApiControllerTest {
     @DisplayName("매칭 목록 조회 테스트")
     void test2() throws Exception {
         mockMvc.perform(
-                get("/api/matchings"))
+                get("/v1/api/matchings"))
             .andExpect(status().isOk())
             .andDo(print());
     }
@@ -64,7 +64,7 @@ class MatchingApiControllerTest {
         //given
         UUID searchId = UUID.randomUUID();
         //then
-        mockMvc.perform(get("/api/matchings/" + searchId))
+        mockMvc.perform(get("/v1/api/matchings/" + searchId))
             .andExpect(status().isOk())
             .andDo(print());
     }

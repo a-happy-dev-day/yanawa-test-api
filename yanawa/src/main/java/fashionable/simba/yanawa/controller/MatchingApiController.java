@@ -4,6 +4,7 @@ import fashionable.simba.yanawa.constant.GenderType;
 import fashionable.simba.yanawa.constant.PreferenceType;
 import fashionable.simba.yanawa.constant.StatusType;
 import fashionable.simba.yanawa.dto.MatchingDto;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("v1")
 public class MatchingApiController {
 
     private static final MatchingDto TEST_DTO = new MatchingDto.Builder(UUID.randomUUID())
@@ -31,12 +33,15 @@ public class MatchingApiController {
         .hostId(UUID.randomUUID())
         .build();
 
-    @PostMapping("api/matchings")
+    @PostMapping(value = "api/matchings",
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        consumes = MediaType.APPLICATION_JSON_VALUE)
     public MatchingDto save(@RequestBody MatchingDto dto) {
         return dto;
     }
 
-    @GetMapping("api/matchings")
+    @GetMapping(value = "api/matchings",
+        produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MatchingDto> findAll() {
         List<MatchingDto> matchingDtos = new ArrayList<>();
 
@@ -47,7 +52,8 @@ public class MatchingApiController {
         return matchingDtos;
     }
 
-    @GetMapping("api/matchings/{matchingId}")
+    @GetMapping(value = "api/matchings/{matchingId}",
+        produces = MediaType.APPLICATION_JSON_VALUE)
     public MatchingDto findOne(@PathVariable UUID matchingId) {
         return TEST_DTO;
     }
