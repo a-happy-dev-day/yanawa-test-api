@@ -1,9 +1,9 @@
-package fashionable.simba.yanawa.controller.dto;
+package fashionable.simba.yanawa.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import fashionable.simba.yanawa.domain.GenderType;
-import fashionable.simba.yanawa.domain.PreferenceType;
-import fashionable.simba.yanawa.domain.StatusType;
+import fashionable.simba.yanawa.constant.GenderType;
+import fashionable.simba.yanawa.constant.PreferenceType;
+import fashionable.simba.yanawa.constant.StatusType;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

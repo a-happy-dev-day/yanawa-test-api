@@ -1,6 +1,6 @@
 package fashionable.simba.yanawa.controller;
 
-import fashionable.simba.yanawa.controller.dto.MatchingDto;
+import fashionable.simba.yanawa.dto.MatchingDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

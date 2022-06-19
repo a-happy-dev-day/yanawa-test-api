@@ -1,4 +1,4 @@
-package fashionable.simba.yanawa.domain;
+package fashionable.simba.yanawa.constant;
 
 public enum StatusType {
     OPENING, CLOSING, ONGOING, FINISH
