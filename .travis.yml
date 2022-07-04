@@ -8,8 +8,8 @@ branches:
 
 cache:
   directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
+    - '$HOME/yanawa/.m2/repository'
+    - '$HOME/yanawa/.mvnw'
 
 script: "./mvnw clean package"
 
