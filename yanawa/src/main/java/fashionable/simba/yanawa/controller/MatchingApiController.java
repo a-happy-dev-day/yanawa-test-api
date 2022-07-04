@@ -7,7 +7,8 @@ import fashionable.simba.yanawa.dto.MatchingDto;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -18,8 +19,9 @@ public class MatchingApiController {
 
     private static final MatchingDto TEST_DTO = new MatchingDto.Builder(UUID.randomUUID())
         .courtId(UUID.randomUUID())
-        .startDate(LocalDateTime.now().plusDays(10L))
-        .endDate(LocalDateTime.now().plusDays(10L).plusHours(4L))
+        .date(LocalDate.now())
+        .startTime(LocalTime.now())
+        .endTime(LocalTime.now().plusHours(4L))
         .annual(1)
         .minimumLevel(2.5)
         .maximumLevel(3.5)
