@@ -26,8 +26,9 @@ class MatchingApiControllerTest {
         //given
         String matchingJson = "{\"matchingId\":\"2cc2a1de-b6d2-4416-828c-4c2db217c7f4\"," +
             "\"courtId\":\"8ba02307-3eae-4cfb-8e6f-59dd4d60ab75\"," +
-            "\"startDate\":\"2022-06-29T18:50:00\"," +
-            "\"endDate\":\"2022-06-29T22:50:00\"," +
+            "\"date\":\"2022-06-29\"," +
+            "\"startTime\":\"18:50:00\"," +
+            "\"endTime\":\"22:50:00\"," +
             "\"annual\":1," +
             "\"minimumLevel\":2.5," +
             "\"maximumLevel\":3.5," +

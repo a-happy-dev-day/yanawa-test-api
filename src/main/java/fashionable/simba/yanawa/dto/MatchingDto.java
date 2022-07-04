@@ -1,19 +1,20 @@
 package fashionable.simba.yanawa.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import fashionable.simba.yanawa.constant.GenderType;
 import fashionable.simba.yanawa.constant.PreferenceType;
 import fashionable.simba.yanawa.constant.StatusType;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 public class MatchingDto {
 
     private final UUID matchingId;
     private final UUID courtId;
-    private final LocalDateTime startDate;
-    private final LocalDateTime endDate;
+    private final LocalDate date;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
     private final Integer annual;
     private final Double minimumLevel;
     private final Double maximumLevel;
@@ -34,12 +35,16 @@ public class MatchingDto {
         return courtId;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
     }
 
     public Integer getAnnual() {
@@ -86,11 +91,12 @@ public class MatchingDto {
         return hostId;
     }
 
-    public MatchingDto(UUID matchingId, UUID courtId, LocalDateTime startDate, LocalDateTime endDate, Integer annual, Double minimumLevel, Double maximumLevel, Integer ageOfRecruitment, GenderType sexOfRecruitment, PreferenceType preferenceGame, Integer numberOfNumber, Double costOfCourtPerPerson, String details, StatusType status, UUID hostId) {
+    public MatchingDto(UUID matchingId, UUID courtId, LocalDate date, LocalTime startTime, LocalTime endTime, Integer annual, Double minimumLevel, Double maximumLevel, Integer ageOfRecruitment, GenderType sexOfRecruitment, PreferenceType preferenceGame, Integer numberOfNumber, Double costOfCourtPerPerson, String details, StatusType status, UUID hostId) {
         this.matchingId = matchingId;
         this.courtId = courtId;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.annual = annual;
         this.minimumLevel = minimumLevel;
         this.maximumLevel = maximumLevel;
@@ -107,8 +113,9 @@ public class MatchingDto {
     private MatchingDto(MatchingDto.Builder builder) {
         this.matchingId = builder.matchingId;
         this.courtId = builder.courtId;
-        this.startDate = builder.startDate;
-        this.endDate = builder.endDate;
+        this.date = builder.date;
+        this.startTime = builder.startTime;
+        this.endTime = builder.endTime;
         this.annual = builder.annual;
         this.minimumLevel = builder.minimumLevel;
         this.maximumLevel = builder.maximumLevel;
@@ -125,8 +132,9 @@ public class MatchingDto {
     public static class Builder {
         private final UUID matchingId;
         private UUID courtId;
-        private LocalDateTime startDate;
-        private LocalDateTime endDate;
+        private LocalDate date;
+        private LocalTime startTime;
+        private LocalTime endTime;
         private Integer annual;
         private Double minimumLevel;
         private Double maximumLevel;
@@ -148,13 +156,18 @@ public class MatchingDto {
             return this;
         }
 
-        public MatchingDto.Builder startDate(LocalDateTime startDate) {
-            this.startDate = startDate;
+        public MatchingDto.Builder date(LocalDate date) {
+            this.date = date;
             return this;
         }
 
-        public MatchingDto.Builder endDate(LocalDateTime endDate) {
-            this.endDate = endDate;
+        public MatchingDto.Builder startTime(LocalTime startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+        public MatchingDto.Builder endTime(LocalTime endTime) {
+            this.endTime = endTime;
             return this;
         }
 
