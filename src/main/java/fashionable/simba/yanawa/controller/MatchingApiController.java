@@ -4,6 +4,7 @@ import fashionable.simba.yanawa.constant.GenderType;
 import fashionable.simba.yanawa.constant.PreferenceType;
 import fashionable.simba.yanawa.constant.StatusType;
 import fashionable.simba.yanawa.dto.MatchingDto;
+import fashionable.simba.yanawa.dto.SearchRequest;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,5 +59,12 @@ public class MatchingApiController {
         produces = MediaType.APPLICATION_JSON_VALUE)
     public MatchingDto findOne(@PathVariable UUID matchingId) {
         return TEST_DTO;
+    }
+
+    @PostMapping(value = "api/matchings/search",
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        consumes = MediaType.APPLICATION_JSON_VALUE)
+    public List<MatchingDto> search(@RequestBody SearchRequest searchRequest) {
+        return List.of(TEST_DTO, TEST_DTO);
     }
 }
