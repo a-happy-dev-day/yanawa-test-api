@@ -6,6 +6,7 @@ import fashionable.simba.yanawa.constant.StatusType;
 import fashionable.simba.yanawa.dto.MatchingDto;
 import fashionable.simba.yanawa.dto.SearchRequest;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -39,32 +40,32 @@ public class MatchingApiController {
     @PostMapping(value = "api/matchings",
         produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE)
-    public MatchingDto save(@RequestBody MatchingDto dto) {
-        return dto;
+    public ResponseEntity<MatchingDto> save(@RequestBody MatchingDto dto) {
+        return ResponseEntity.ok(dto);
     }
 
     @GetMapping(value = "api/matchings",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<MatchingDto> findAll() {
+    public ResponseEntity<List<MatchingDto>> findAll() {
         List<MatchingDto> matchingDtos = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
             matchingDtos.add(TEST_DTO);
         }
 
-        return matchingDtos;
+        return ResponseEntity.ok(matchingDtos);
     }
 
     @GetMapping(value = "api/matchings/{matchingId}",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    public MatchingDto findOne(@PathVariable UUID matchingId) {
-        return TEST_DTO;
+    public ResponseEntity<MatchingDto> findOne(@PathVariable UUID matchingId) {
+        return ResponseEntity.ok(TEST_DTO);
     }
 
     @PostMapping(value = "api/matchings/search",
         produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE)
-    public List<MatchingDto> search(@RequestBody SearchRequest searchRequest) {
-        return List.of(TEST_DTO, TEST_DTO);
+    public ResponseEntity<List<MatchingDto>> search(@RequestBody SearchRequest searchRequest) {
+        return ResponseEntity.ok(List.of(TEST_DTO, TEST_DTO));
     }
 }
