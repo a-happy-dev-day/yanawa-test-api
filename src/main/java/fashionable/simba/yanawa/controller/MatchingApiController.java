@@ -3,7 +3,8 @@ package fashionable.simba.yanawa.controller;
 import fashionable.simba.yanawa.constant.GenderType;
 import fashionable.simba.yanawa.constant.PreferenceType;
 import fashionable.simba.yanawa.constant.StatusType;
-import fashionable.simba.yanawa.dto.MatchingDto;
+import fashionable.simba.yanawa.dto.MatchingRequest;
+import fashionable.simba.yanawa.dto.MatchingResponse;
 import fashionable.simba.yanawa.dto.SearchRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,8 @@ import java.util.UUID;
 @RequestMapping("v1")
 public class MatchingApiController {
 
-    private static final MatchingDto TEST_DTO = new MatchingDto.Builder(UUID.randomUUID())
-        .courtId(UUID.randomUUID())
+    private static final MatchingResponse TEST_DTO = new MatchingResponse.Builder(UUID.randomUUID())
+        .courtName("서울 올림픽대로 경기장")
         .date(LocalDate.now())
         .startTime(LocalTime.now())
         .endTime(LocalTime.now().plusHours(4L))
@@ -40,14 +41,15 @@ public class MatchingApiController {
     @PostMapping(value = "api/matchings",
         produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<MatchingDto> save(@RequestBody MatchingDto dto) {
-        return ResponseEntity.ok(dto);
+    public ResponseEntity<MatchingResponse> save(@RequestBody MatchingRequest dto) {
+
+        return ResponseEntity.ok(TEST_DTO);
     }
 
     @GetMapping(value = "api/matchings",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<MatchingDto>> findAll() {
-        List<MatchingDto> matchingDtos = new ArrayList<>();
+    public ResponseEntity<List<MatchingResponse>> findAll() {
+        List<MatchingResponse> matchingDtos = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
             matchingDtos.add(TEST_DTO);
@@ -58,14 +60,14 @@ public class MatchingApiController {
 
     @GetMapping(value = "api/matchings/{matchingId}",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<MatchingDto> findOne(@PathVariable UUID matchingId) {
+    public ResponseEntity<MatchingResponse> findOne(@PathVariable UUID matchingId) {
         return ResponseEntity.ok(TEST_DTO);
     }
 
     @PostMapping(value = "api/matchings/search",
         produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<MatchingDto>> search(@RequestBody SearchRequest searchRequest) {
+    public ResponseEntity<List<MatchingResponse>> search(@RequestBody SearchRequest searchRequest) {
         return ResponseEntity.ok(List.of(TEST_DTO, TEST_DTO));
     }
 }

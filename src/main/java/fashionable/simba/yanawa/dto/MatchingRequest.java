@@ -8,8 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
 
-public class MatchingDto {
-
+public class MatchingRequest {
     private final UUID matchingId;
     private final UUID courtId;
     private final LocalDate date;
@@ -31,9 +30,6 @@ public class MatchingDto {
         return matchingId;
     }
 
-    public UUID getCourtId() {
-        return courtId;
-    }
 
     public LocalDate getDate() {
         return date;
@@ -91,7 +87,7 @@ public class MatchingDto {
         return hostId;
     }
 
-    public MatchingDto(UUID matchingId, UUID courtId, LocalDate date, LocalTime startTime, LocalTime endTime, Integer annual, Double minimumLevel, Double maximumLevel, Integer ageOfRecruitment, GenderType sexOfRecruitment, PreferenceType preferenceGame, Integer numberOfNumber, Double costOfCourtPerPerson, String details, StatusType status, UUID hostId) {
+    public MatchingRequest(UUID matchingId, UUID courtId, LocalDate date, LocalTime startTime, LocalTime endTime, Integer annual, Double minimumLevel, Double maximumLevel, Integer ageOfRecruitment, GenderType sexOfRecruitment, PreferenceType preferenceGame, Integer numberOfNumber, Double costOfCourtPerPerson, String details, StatusType status, UUID hostId) {
         this.matchingId = matchingId;
         this.courtId = courtId;
         this.date = date;
@@ -110,7 +106,7 @@ public class MatchingDto {
         this.hostId = hostId;
     }
 
-    private MatchingDto(MatchingDto.Builder builder) {
+    private MatchingRequest(Builder builder) {
         this.matchingId = builder.matchingId;
         this.courtId = builder.courtId;
         this.date = builder.date;
@@ -151,83 +147,83 @@ public class MatchingDto {
             this.matchingId = matchingId;
         }
 
-        public MatchingDto.Builder courtId(UUID courtId) {
+        public Builder courtId(UUID courtId) {
             this.courtId = courtId;
             return this;
         }
 
-        public MatchingDto.Builder date(LocalDate date) {
+        public Builder date(LocalDate date) {
             this.date = date;
             return this;
         }
 
-        public MatchingDto.Builder startTime(LocalTime startTime) {
+        public Builder startTime(LocalTime startTime) {
             this.startTime = startTime;
             return this;
         }
 
-        public MatchingDto.Builder endTime(LocalTime endTime) {
+        public Builder endTime(LocalTime endTime) {
             this.endTime = endTime;
             return this;
         }
 
-        public MatchingDto.Builder annual(Integer annual) {
+        public Builder annual(Integer annual) {
             this.annual = annual;
             return this;
         }
 
-        public MatchingDto.Builder minimumLevel(Double minimumLevel) {
+        public Builder minimumLevel(Double minimumLevel) {
             this.minimumLevel = minimumLevel;
             return this;
         }
 
-        public MatchingDto.Builder maximumLevel(Double maximumLevel) {
+        public Builder maximumLevel(Double maximumLevel) {
             this.maximumLevel = maximumLevel;
             return this;
         }
 
-        public MatchingDto.Builder ageOfRecruitment(Integer ageOfRecruitment) {
+        public Builder ageOfRecruitment(Integer ageOfRecruitment) {
             this.ageOfRecruitment = ageOfRecruitment;
             return this;
         }
 
-        public MatchingDto.Builder sexOfRecruitment(GenderType sexOfRecruitment) {
+        public Builder sexOfRecruitment(GenderType sexOfRecruitment) {
             this.sexOfRecruitment = sexOfRecruitment;
             return this;
         }
 
-        public MatchingDto.Builder preferenceGame(PreferenceType preferenceGame) {
+        public Builder preferenceGame(PreferenceType preferenceGame) {
             this.preferenceGame = preferenceGame;
             return this;
         }
 
-        public MatchingDto.Builder numberOfNumber(Integer numberOfNumber) {
+        public Builder numberOfNumber(Integer numberOfNumber) {
             this.numberOfNumber = numberOfNumber;
             return this;
         }
 
-        public MatchingDto.Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
+        public Builder costOfCourtPerPerson(Double costOfCourtPerPerson) {
             this.costOfCourtPerPerson = costOfCourtPerPerson;
             return this;
         }
 
-        public MatchingDto.Builder details(String details) {
+        public Builder details(String details) {
             this.details = details;
             return this;
         }
 
-        public MatchingDto.Builder status(StatusType status) {
+        public Builder status(StatusType status) {
             this.status = status;
             return this;
         }
 
-        public MatchingDto.Builder hostId(UUID hostId) {
+        public Builder hostId(UUID hostId) {
             this.hostId = hostId;
             return this;
         }
 
-        public MatchingDto build() {
-            return new MatchingDto(this);
+        public MatchingRequest build() {
+            return new MatchingRequest(this);
         }
     }
 }
