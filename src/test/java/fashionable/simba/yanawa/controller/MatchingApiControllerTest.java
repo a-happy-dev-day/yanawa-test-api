@@ -28,8 +28,6 @@ class MatchingApiControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     @Test
     @DisplayName("매칭 생성 테스트")
     void test1() throws Exception {
@@ -85,16 +83,14 @@ class MatchingApiControllerTest {
     @DisplayName("매칭 검색 API 테스트")
     void test4() throws Exception {
 
-        SearchRequest searchRequest = new SearchRequest.Builder()
-            .location("서울시 마포구")
-            .startDate(LocalDate.now())
-            .endDate(LocalDate.now().plusDays(10L))
-            .startTime(LocalTime.now())
-            .endTime(LocalTime.now().plusHours(8))
-            .annual(2).build();
+        String requestBody = "{\"location\":\"서울시 마포구\"," +
+            "\"startDate\":\"2022-06-29\"," +
+            "\"endDate\":\"2022-07-05\"," +
+            "\"startTime\":\"10:50:00\"," +
+            "\"endTime\":\"23:00:00\"," +
+            "\"annual\":\"2\"}";
 
-        String requestBody = objectMapper.registerModule(new JavaTimeModule()).writeValueAsString(searchRequest);
-
+        System.out.println(requestBody);
         mockMvc.perform(
                 post("/v1/api/matchings/search")
                     .content(requestBody)
